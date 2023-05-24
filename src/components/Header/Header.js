@@ -99,6 +99,8 @@ const MainHeader = styled(MaxWidthWrapper)`
     grid-template-columns: 1fr auto 1fr;
     align-items: center;
     justify-content: revert;
+    margin-top: 16px;
+    margin-bottom: 72px;
   }
 `;
 
