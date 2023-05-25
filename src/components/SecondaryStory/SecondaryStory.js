@@ -45,6 +45,15 @@ const Abstract = styled.p`
   grid-area: abstract;
   font-size: 1rem;
   white-space: pre-wrap;
+
+  /* Limit 3 lines for each secondary story abstract */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+
+  /* Prevent paragraph from stretching*/
+  align-self: start;
 `;
 
 export default SecondaryStory;
