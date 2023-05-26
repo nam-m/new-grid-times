@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/macro';
+import { QUERIES } from '../../constants';
 
 import {
   MAIN_STORY,
@@ -34,7 +35,9 @@ const MainStoryGrid = () => {
         <SectionTitle>Opinion</SectionTitle>
         <StoryList>
           {OPINION_STORIES.map((story, index) => (
-            <OpinionStory key={story.id} {...story} />
+            <OpinionStoryWrapper key={story.id}>
+              <OpinionStory {...story} />
+            </OpinionStoryWrapper>
           ))}
         </StoryList>
       </OpinionSection>
@@ -76,7 +79,10 @@ const SecondaryStoryWrapper = styled.section`
     padding-bottom: 16px;
     margin-bottom: 16px;
   }
-`
+`;
+
+const OpinionStoryWrapper = styled.SecondaryStoryWrapper``;
+
 const OpinionSection = styled.section`
   grid-area: opinion-stories;
 `;
