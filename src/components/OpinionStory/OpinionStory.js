@@ -20,7 +20,7 @@ const Wrapper = styled.article`
   color: var(--color-gray-900);
   display: grid;
   grid-template-areas:
-  'author avatar'
+    'author avatar'
     'title avatar';
 
   @media ${QUERIES.tabletOnly} {
