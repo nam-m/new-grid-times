@@ -117,7 +117,11 @@ const OpinionStoryList = styled.div`
   @media ${QUERIES.tabletOnly} {
     grid-auto-flow: column;
     gap: 32px;
-    grid-template-columns: repeat(4, 1fr);
+    /* Stretch to fit stories with 
+    min size of 150px and max size of maximum available space */
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    /* Center the stories*/
+    justify-content: center;
   }
 `;
 
