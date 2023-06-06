@@ -37,7 +37,9 @@ const SpecialtyStoryGrid = () => {
         </SectionTitle>
         <SportsStories>
           {SPORTS_STORIES.map((data) => (
-            <MiniStory key={data.id} {...data} />
+            <SportsStoryWrapper key={data.id}>
+              <MiniStory {...data} />
+            </SportsStoryWrapper>
           ))}
         </SportsStories>
       </SportsSection>
@@ -48,6 +50,19 @@ const SpecialtyStoryGrid = () => {
 const Wrapper = styled.div`
   display: grid;
   gap: 48px;
+
+  /* Limit column width to avoid matching the sports stories overflow*/
+  @media ${QUERIES.tabletAndUp} {
+    gap: 64px;
+    grid-template-columns: 100%; /* also works with minmax(0, auto)*/
+  }
+
+  /* Align market and sports sections next to each other
+  Enable sports stories overflow on the right column*/
+  @media ${QUERIES.laptopAndUp} {
+    gap: revert;
+    grid-template-columns: 1fr minmax(0, 1fr);
+  }
 `;
 
 const MarketsSection = styled.section`
@@ -75,6 +90,18 @@ const SportsStories = styled.div`
     repeat(auto-fill, minmax(180px, 1fr));
   gap: 16px;
 
+  /* Make sports stories overflow and scrollable in tablet and up*/
+  @media ${QUERIES.tabletAndUp} {
+    display: flex;
+    grid-template-columns: revert;
+    overflow: auto;
+  }
 `;
+
+const SportsStoryWrapper = styled.div`
+  /* Wrap sports story with min width of 220px */
+  @media ${QUERIES.tabletAndUp} {
+    min-width: 220px;
+  }
 `;
 export default SpecialtyStoryGrid;
