@@ -68,6 +68,13 @@ const MarketCards = styled.div`
 
 const SportsSection = styled.section``;
 
-const SportsStories = styled.div``;
+const SportsStories = styled.div`
+  /* Fluid grid for sports stories with min size of 180px */
+  display: grid;
+  grid-template-columns: 
+    repeat(auto-fill, minmax(180px, 1fr));
+  gap: 16px;
 
+`;
+`;
 export default SpecialtyStoryGrid;
