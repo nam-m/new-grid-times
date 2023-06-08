@@ -41,24 +41,26 @@ const Footer = () => {
         </TopRow>
         <MainNavArea>
           <nav>
-            <MainNavHeading>Discover Content</MainNavHeading>
-            <MainNavList>
-              <li>
-                <a href="/pol">Politics</a>
-              </li>
-              <li>
-                <a href="/wrl">World</a>
-              </li>
-              <li>
-                <a href="/fin">Financial</a>
-              </li>
-              <li>
-                <a href="/spo">Sports and Entertainment</a>
-              </li>
-              <li>
-                <a href="/oped">Opinion and Editorial</a>
-              </li>
-            </MainNavList>
+            {/* <MainNavWrapper> */}
+              <MainNavHeading>Discover Content</MainNavHeading>
+              <MainNavList>
+                <li>
+                  <a href="/pol">Politics</a>
+                </li>
+                <li>
+                  <a href="/wrl">World</a>
+                </li>
+                <li>
+                  <a href="/fin">Financial</a>
+                </li>
+                <li>
+                  <a href="/spo">Sports and Entertainment</a>
+                </li>
+                <li>
+                  <a href="/oped">Opinion and Editorial</a>
+                </li>
+              </MainNavList>
+            {/* </MainNavWrapper> */}
           </nav>
           <nav>
             <MainNavHeading>Regional Websites</MainNavHeading>
@@ -183,6 +185,20 @@ const MainNavArea = styled.div`
   gap: 32px;
   padding: 32px 0 48px;
   text-align: center;
+
+  @media ${QUERIES.tabletOnly} {
+    display: grid;
+    grid-template-columns:
+      repeat(auto-fill, minmax(200px, 1fr));
+    justify-items: start;
+  }
+
+  @media ${QUERIES.laptopAndUp} {
+    display: grid;
+    grid-template-columns:
+      repeat(auto-fit, minmax(200px, 1fr));
+    justify-items: start;
+  }
 `;
 
 const MainNavHeading = styled.h2`
@@ -190,12 +206,20 @@ const MainNavHeading = styled.h2`
   font-weight: var(--font-weight-bold);
   color: var(--color-gray-300);
   margin-bottom: 8px;
+
+  @media ${QUERIES.tabletAndUp} {
+    text-align: left;
+  }
 `;
 
 const MainNavList = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 4px;
+
+  @media ${QUERIES.tabletAndUp} {
+    align-items: flex-start;
+  }
 `;
 
 const SubfooterWrapper = styled.div`
