@@ -148,16 +148,14 @@ const TopRow = styled.div`
   border-bottom: 1px solid var(--color-gray-700);
   padding: 24px 0;
 
-  @media ${QUERIES.tabletOnly} {
+  @media ${QUERIES.tabletAndUp} {
     flex-direction: row;
     justify-content: center;
     gap: 48px;
   }
 
   @media ${QUERIES.laptopAndUp} {
-    flex-direction: row;
     justify-content: flex-end;
-    gap: 48px;
   }
 `;
 
@@ -186,18 +184,15 @@ const MainNavArea = styled.div`
   padding: 32px 0 48px;
   text-align: center;
 
-  @media ${QUERIES.tabletOnly} {
-    display: grid;
-    grid-template-columns:
-      repeat(auto-fill, minmax(200px, 1fr));
-    justify-items: start;
-  }
-
-  @media ${QUERIES.laptopAndUp} {
+  @media ${QUERIES.tabletAndUp} {
     display: grid;
     grid-template-columns:
       repeat(auto-fit, minmax(200px, 1fr));
-    justify-items: start;
+    ${'' /* justify-items: start; */}
+    text-align: left;
+    /* Revert default value
+      Note that flex-direction is not used in grid  */
+    flex-direction: revert;
   }
 `;
 
@@ -234,7 +229,7 @@ const Subfooter = styled.div`
   flex-direction: column;
   align-items: center;
 
-  @media ${QUERIES.tabletAndUp} {
+  @media ${QUERIES.laptopAndUp} {
     align-items: flex-start;
   }
 `;
